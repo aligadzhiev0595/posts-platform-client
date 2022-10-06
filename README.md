@@ -1,6 +1,6 @@
 # Pet-project Posts-App
 
-## Build & Development
+## Build
 
 ```bash
 git clone https://github.com/aligadzhiev0595/nextjs-post.git
