@@ -15,11 +15,10 @@ build script - $ yarn dev || npm dev
 nextjs-post/
 ├─ server/
 │ ├─ models                  Mongo DB models
-│ ├─ routes                  routing, endpoints config
+│ ├─ routes                  Routing
 │ └─ server.js               Express configuration
 │
 ├─ client/
-│ ├─ components              React components
 │ ├─ styles                  CSS & Styled components
 │ ├─ pages                   Next js pages
 │ ├─ layout                  Next js layout
@@ -31,7 +30,7 @@ nextjs-post/
 │ ├─ tsconfig                Typescript config
 │ └─ package.json            NPM dependencies
 │
-└─ package.json       NPM dependencies
+└─ package.json              NPM dependencies
 ```
 
 ## Used libraries
