@@ -14,7 +14,7 @@ build script - $ yarn dev || npm dev
 ```txt
 nextjs-post/
 ├─ server/
-│ ├─ models                  Sequelize ORM models
+│ ├─ models                  Mongo DB models
 │ ├─ routes                  routing, endpoints config
 │ └─ server.js               Express configuration
 │
