@@ -1,4 +1,4 @@
-# Pet-project Posts-App
+# Pet-project
 
 ## Build
 
