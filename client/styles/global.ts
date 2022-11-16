@@ -1,3 +1,6 @@
+import { createGlobalStyle } from 'styled-components'
+
+export default createGlobalStyle`
 * {
   margin: 0;
   padding: 0;
@@ -7,12 +10,6 @@ body {
   font-family: 'Roboto', sans-serif;
   background-color: #EEF5FF;
 }
-.container{
-  max-width: 1110px;
-  width: 100%;
-  margin: 0 auto;
-}
-
 a {
   text-decoration: none;
   color: inherit;
@@ -20,3 +17,4 @@ a {
 li {
   list-style: none;
 }
+`

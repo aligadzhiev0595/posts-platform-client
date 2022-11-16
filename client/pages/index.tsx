@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import { IPost } from '../interfaces'
 import Head from 'next/head'
 import { Navbar } from '../layouts/Navbar'
-import { Wrapper, PostItems, Post, Title } from '../styles/GlobalStyled'
+import { Wrapper, PostItems, Post, Title,Container } from '../styles/components'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import axios from 'axios'
 import Link from 'next/link'
@@ -18,6 +18,10 @@ export const getStaticProps: GetStaticProps = async () => {
 const Home: NextPage = ({
   getPosts,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const fakeArray = new Array(6).fill({
+    image: 'https://двхм.рф/wp-content/uploads/2018/04/placeholder.png',
+    title: 'fill me',
+  })
   return (
     <div>
       <Head>
@@ -26,17 +30,24 @@ const Home: NextPage = ({
       </Head>
       <Navbar />
       <Wrapper>
-        <div className='container'>
+        <Container>
           <PostItems>
-            {getPosts.map((post: IPost, idx: number) => (
-              <Link href={'/post/[id]'} as={`/post/${post._id}`} key={idx}>
-                <Post img={post.image}>
-                  <Title>{post.title}</Title>
-                </Post>
-              </Link>
-            ))}
+            {getPosts.length === 0
+              ? fakeArray.map((item, idx) => (
+                  <Post img={item.image} key={idx}>
+                    <Title>{item.title}</Title>
+                  </Post>
+                ))
+              : getPosts.map((post: IPost, idx: number) => (
+                  // <Link href={`/post/${post._id}`} key={idx}>
+                  <Link href={'/post/[id]'} as={`/post/${post._id}`} key={idx}>
+                    <Post img={post.image}>
+                      <Title>{post.title}</Title>
+                    </Post>
+                  </Link>
+                ))}
           </PostItems>
-        </div>
+        </Container>
       </Wrapper>
     </div>
   )

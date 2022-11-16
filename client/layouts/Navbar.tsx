@@ -1,15 +1,15 @@
 import Link from 'next/link'
-import { Nav, Ul, Li, Logo, AddBtn } from '../styles/GlobalStyled'
+import { Nav, Ul, Li, Logo, AddBtn, Container } from '../styles/components'
 
 export const Navbar = () => {
   return (
     <header>
       <Nav>
-        <div className='container'>
+        <Container>
           <Ul>
             <Li>
               <Link href={'/'}>
-                <Logo>NEXT | BLOG</Logo>
+                <Logo>NEXT | CALLBOARD</Logo>
               </Link>
             </Li>
             <Li>
@@ -18,7 +18,7 @@ export const Navbar = () => {
               </Link>
             </Li>
           </Ul>
-        </div>
+        </Container>
       </Nav>
     </header>
   )

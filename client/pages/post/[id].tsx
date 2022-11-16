@@ -1,17 +1,19 @@
+import Image from 'next/future/image'
 import type { NextPage } from 'next'
-import Image from 'next/image'
 import Head from 'next/head'
 import { Navbar } from '../../layouts/Navbar'
 import { useRouter } from 'next/router'
 import {
   BackBtn,
+  Container,
+  Img,
   PostDescr,
   PostItem,
   PostsWrapper,
   PostTitle,
   RemoveBtn,
   Wrapper,
-} from '../../styles/GlobalStyled'
+} from '../../styles/components'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import axios from 'axios'
 
@@ -45,7 +47,7 @@ const Post: NextPage = ({
       </Head>
       <Navbar />
       <Wrapper>
-        <div className='container'>
+        <Container>
           <BackBtn onClick={() => route.push('/')}>
             <Image
               src='/static/images/Vector.svg'
@@ -61,16 +63,11 @@ const Post: NextPage = ({
               <PostDescr>{post?.desc}</PostDescr>
             </PostItem>
             <PostItem>
-              <Image
-                src={post?.image}
-                alt='Picture of the author'
-                width={540}
-                height={316}
-              />
+              <Img src={post?.image} alt='Picture of the author' />
             </PostItem>
             <RemoveBtn onClick={removePost}>Удалить статью</RemoveBtn>
           </PostsWrapper>
-        </div>
+        </Container>
       </Wrapper>
     </>
   )

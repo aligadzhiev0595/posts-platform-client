@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  experimental: {
+    images: { allowFutureImage: true },
+  },
   images: {
     remotePatterns: [
       {
@@ -9,6 +12,7 @@ const nextConfig = {
         hostname: '**',
       },
     ],
+    domains:['*.*']
   },
 }
 

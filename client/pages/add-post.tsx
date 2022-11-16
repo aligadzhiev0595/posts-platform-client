@@ -12,7 +12,8 @@ import {
   Input,
   TextArea,
   SubmitBtn,
-} from '../styles/GlobalStyled'
+  Container
+} from '../styles/components'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import axios from 'axios'
@@ -40,7 +41,7 @@ const AddPost: NextPage = () => {
       </Head>
       <Navbar />
       <Wrapper>
-        <div className='container'>
+        <Container>
           <BackBtn onClick={() => route.push('/')}>
             <Image
               src='/static/images/Vector.svg'
@@ -67,7 +68,7 @@ const AddPost: NextPage = () => {
               <SubmitBtn onClick={addPost}>Добавить</SubmitBtn>
             </Form>
           </FormWrapper>
-        </div>
+        </Container>
       </Wrapper>
     </>
   )
