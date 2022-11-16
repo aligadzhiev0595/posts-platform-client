@@ -3,11 +3,11 @@ import { IPost } from '../interfaces'
 import Head from 'next/head'
 import { Navbar } from '../layouts/Navbar'
 import { Wrapper, PostItems, Post, Title,Container } from '../styles/components'
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import axios from 'axios'
 import Link from 'next/link'
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const getPosts = await (await axios('https://posts-platform-backend.herokuapp.com/api/post')).data
   return {
     props: {
@@ -17,7 +17,7 @@ export const getStaticProps: GetStaticProps = async () => {
 }
 const Home: NextPage = ({
   getPosts,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const fakeArray = new Array(6).fill({
     image: 'https://двхм.рф/wp-content/uploads/2018/04/placeholder.png',
     title: 'fill me',
