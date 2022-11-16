@@ -8,7 +8,7 @@ import axios from 'axios'
 import Link from 'next/link'
 
 export const getStaticProps: GetStaticProps = async () => {
-  const getPosts = await (await axios('http://localhost:8080/api/post')).data
+  const getPosts = await (await axios(`${process.env.REACT_APP_API_URL}/api/post`)).data
   return {
     props: {
       getPosts,
@@ -39,7 +39,6 @@ const Home: NextPage = ({
                   </Post>
                 ))
               : getPosts.map((post: IPost, idx: number) => (
-                  // <Link href={`/post/${post._id}`} key={idx}>
                   <Link href={'/post/[id]'} as={`/post/${post._id}`} key={idx}>
                     <Post img={post.image}>
                       <Title>{post.title}</Title>

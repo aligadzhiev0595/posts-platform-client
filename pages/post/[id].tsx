@@ -19,7 +19,7 @@ import axios from 'axios'
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const post = await (
-    await axios(`http://localhost:8080/api/post/${context.query.id}`)
+    await axios(`${process.env.REACT_APP_API_URL}/api/post/${context.query.id}`)
   ).data
   return {
     props: {
@@ -34,7 +34,7 @@ const Post: NextPage = ({
   const route = useRouter()
   const removePost = async () => {
     await axios
-      .post('http://localhost:8080/api/post/remove', {
+      .post(`${process.env.REACT_APP_API_URL}/api/post/remove`, {
         postId: post._id,
       })
       .then(() => route.push('/'))
