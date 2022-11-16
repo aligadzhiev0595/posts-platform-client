@@ -8,7 +8,7 @@ import axios from 'axios'
 import Link from 'next/link'
 
 export const getStaticProps: GetStaticProps = async () => {
-  const getPosts = await (await axios(`${process.env.REACT_APP_API_URL}/api/post`)).data
+  const getPosts = await (await axios('https://posts-platform-backend.herokuapp.com/api/post')).data
   return {
     props: {
       getPosts,

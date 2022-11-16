@@ -27,7 +27,7 @@ const AddPost: NextPage = () => {
   const addPost = async () => {
     try {
       await axios
-        .post(`${process.env.REACT_APP_API_URL}/api/post/add`, { title, desc, image })
+        .post('https://posts-platform-backend.herokuapp.com/api/post/add', { title, desc, image })
         .then(() => route.push('/'))
     } catch (error) {
       console.error(error)
