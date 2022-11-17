@@ -147,6 +147,7 @@ export const Input = styled.input`
   border-radius: 5px;
   outline: none;
   padding: 5px 10px;
+  font-size: 16px;
 `
 export const TextLable = styled.label`
   font-style: normal;
@@ -164,6 +165,7 @@ export const TextArea = styled.textarea`
   outline: none;
   padding: 5px 10px;
   margin-bottom: 5px;
+  font-size: 16px;
 `
 export const SubmitBtn = styled.button`
   background-color: ${baseTheme.colors.firstColor};
