@@ -19,7 +19,7 @@ import axios from 'axios'
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const post = await (
-    await axios(`https://posts-platform-backend.herokuapp.com/api/post/${context.query.id}`)
+    await axios(`https://posts-platform-backend.vercel.app/api/post/${context.query.id}`)
   ).data
   return {
     props: {
@@ -34,7 +34,7 @@ const Post: NextPage = ({
   const route = useRouter()
   const removePost = async () => {
     await axios
-      .post('https://posts-platform-backend.herokuapp.com/api/post/remove', {
+      .post('https://posts-platform-backend.vercel.app/api/post/remove', {
         postId: post._id,
       })
       .then(() => route.push('/'))

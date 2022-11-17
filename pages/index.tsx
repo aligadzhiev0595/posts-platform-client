@@ -8,7 +8,7 @@ import axios from 'axios'
 import Link from 'next/link'
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const getPosts = await (await axios('https://posts-platform-backend.herokuapp.com/api/post')).data
+  const getPosts = await (await axios('https://posts-platform-backend.vercel.app/api/post')).data
   return {
     props: {
       getPosts,

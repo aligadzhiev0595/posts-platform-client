@@ -12,7 +12,7 @@ import {
   Input,
   TextArea,
   SubmitBtn,
-  Container
+  Container,
 } from '../styles/components'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
@@ -27,7 +27,11 @@ const AddPost: NextPage = () => {
   const addPost = async () => {
     try {
       await axios
-        .post('https://posts-platform-backend.herokuapp.com/api/post/add', { title, desc, image })
+        .post('https://posts-platform-backend.vercel.app/api/post/add', {
+          title,
+          desc,
+          image,
+        })
         .then(() => route.push('/'))
     } catch (error) {
       console.error(error)
@@ -55,7 +59,7 @@ const AddPost: NextPage = () => {
             <Form onSubmit={(e) => e.preventDefault()}>
               <InputWrapper>
                 <TextLable>Название статьи:</TextLable>
-                <Input onChange={(e) => setTitle(e.target.value)} />
+                <Input type='text' onChange={(e) => setTitle(e.target.value)} />
               </InputWrapper>
               <InputWrapper>
                 <TextLable>Текст статьи:</TextLable>
@@ -63,7 +67,7 @@ const AddPost: NextPage = () => {
               </InputWrapper>
               <InputWrapper>
                 <TextLable>URL картинки:</TextLable>
-                <Input onChange={(e) => setImage(e.target.value)} />
+                <Input type='text' onChange={(e) => setImage(e.target.value)} />
               </InputWrapper>
               <SubmitBtn onClick={addPost}>Добавить</SubmitBtn>
             </Form>
